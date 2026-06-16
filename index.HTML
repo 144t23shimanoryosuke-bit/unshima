@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>理科の謎解きミッション「月と太陽」</title>
+    <style>
+        /* 全体のデザイン（宇宙・夜空をイメージした深い紺色のグラデーション） */
+        body {
+            background: linear-gradient(135deg, #0b132b 0%, #1c2541 100%);
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* 中央のカード部分 */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* 三日月のイラスト（CSSアート） */
+        .moon-box {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px auto;
+        }
+        .crescent-moon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            /* 影を使って綺麗な黄金色の三日月を表現 */
+            box-shadow: 20px 20px 0 0 #f1c40f;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotate(-35deg);
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #f1c40f;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+        }
+
+        /* 入力欄 */
+        input[type="text"] {
+            width: 80%;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            text-align: center;
+            outline: none;
+            transition: 0.3s;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus {
+            border-color: #f1c40f;
+            box-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+        }
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* 送信ボタン */
+        button {
+            width: 80%;
+            padding: 12px;
+            font-size: 18px;
+            background: linear-gradient(90deg, #f1c40f 0%, #f39c12 100%);
+            color: #0b132b;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(241, 196, 15, 0.3);
+            transition: 0.2s;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(241, 196, 15, 0.5);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 三日月のイラスト部分 -->
+    <div class="moon-box">
+        <div class="crescent-moon"></div>
+    </div>
+    
+    <h2>🌗 最後のミッション 🌓</h2>
+    <p>謎を解いて導き出した<br>正しい方角（ひらがな5文字）を<br>入力欄に入力せよ！</p>
+    
+    <!-- 入力フォーム -->
+    <input type="text" id="passwordInput" placeholder="ここに答えを入力">
+    <br>
+    <button onclick="checkPassword()">送信する</button>
+</div>
+
+<script>
+function checkPassword() {
+    // 児童が入力した文字を取得（前後の空白を自動削除）
+    const input = document.getElementById('passwordInput').value.trim();
+    
+    // 正解のキーワード
+    const correctAnswer = "にしのそら"; 
+    
+    // ★重要★ 正解したときにジャンプさせたい「Canvaのクリア画面のURL」を下のダブルクォーテーション内に入れてください
+    const targetUrl = "https://canva.com"; 
+
+    if (input === correctAnswer) {
+        alert("正解！ロックを解除します。宇宙ステーションへ移動します！");
+        window.location.href = targetUrl; // Canvaのサイトへジャンプ
+    } else {
+        alert("ブブー！もう一度よく考えてみよう！");
+    }
+}
+</script>
+
+</body>
+</html>
